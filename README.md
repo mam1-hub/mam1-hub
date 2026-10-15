@@ -33,4 +33,4 @@ Proxmox ve Ubuntu sunucular, Docker, Cloudflare. Projelerimi kendi kurduğum sun
 
 ### Ulaşmak için
 
-Discord'da **m.a.m.1** ([profil](https://discord.com/users/836876485704941568)) en hızlı yol. E-posta: [mami.hub37@gmail.com](mailto:mami.hub37@gmail.com). Bot paketleri için [sysmami.com](https://sysmami.com).
+Discord'da **m.a.m.1** ([profil](https://discord.com/users/836876485704941568)) en hızlı yol. E-posta: [info@sysmami.com](mailto:info@sysmami.com). Bot paketleri için [sysmami.com](https://sysmami.com).
