@@ -1,0 +1,45 @@
+name: Aktivite kartı
+
+# Profil README'sindeki GitHub hareketi kartını (assets/aktivite.svg) her gün
+# yeniden çizer. Hazır istatistik servislerine bağımlı değil.
+on:
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/aktivite.mjs'
+      - 'scripts/fonts.json'
+      - '.github/workflows/aktivite.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aktivite
+  cancel-in-progress: true
+
+jobs:
+  ciz:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Kartı çiz
+        run: node scripts/aktivite.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Değiştiyse gönder
+        run: |
+          if git diff --quiet -- assets/aktivite.svg; then
+            echo "Kart aynı, gönderilecek bir şey yok."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/aktivite.svg
+          git commit -m "Aktivite kartı güncellendi"
+          git push
