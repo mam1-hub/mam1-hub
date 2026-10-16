@@ -1,7 +1,9 @@
-// GitHub hareketi kartı: son 52 haftanın katkı ısı haritası ve tek cümlelik
-// özet (yıllık katkı, en uzun ve şu anki seri). Hazır servislerin (vercel /
-// heroku) yerine her gün GitHub Actions'ta yeniden üretilir; gizli repolardaki
-// katkılar da sayılır (profilde "Private contributions" açıksa).
+// GitHub hareketi kartı: profildeki takvimin aynısı (son bir yıl) ve tek
+// cümlelik özet (yıllık katkı, en uzun ve şu anki seri). Toplam, GitHub'ın
+// kendi "son bir yıldaki katkı" sayısıdır. Hazır servislerin (vercel / heroku)
+// yerine 30 dakikada bir GitHub Actions'ta yeniden üretilir ve `output`
+// dalına yazılır; gizli repolardaki katkılar da sayılır (profilde "Private
+// contributions" açıksa).
 //
 //   GITHUB_TOKEN=... node scripts/aktivite.mjs           (Actions)
 //   node scripts/aktivite.mjs --veri takvim.json        (yerelde hazır veriyle)
@@ -61,13 +63,15 @@ const gunAdi = (n) => (n === 1 ? '1 gün' : `${n} gün`);
 
 export function ciz(veri, simdi = new Date()) {
     const takvim = veri.data.user.contributionsCollection.contributionCalendar;
-    const haftalar = takvim.weeks.slice(-52);
+    const haftalar = takvim.weeks;
     const gunler = haftalar.flatMap((h) => h.contributionDays);
     const bugun = simdi.toISOString().slice(0, 10);
-    const s = seriler(gunler, bugun);
+    // Toplam GitHub'ın profilde gösterdiği sayıyla aynı olsun.
+    const s = { ...seriler(gunler, bugun), toplam: Number(takvim.totalContributions) || 0 };
+    const guncelleme = simdi.toLocaleString('tr-TR', { timeZone: 'Europe/Istanbul', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
     const sev = seviyeci(gunler);
 
-    const W = 1200, H = 348, X = 56, Y = 128, HUC = 17, ARA = 4, ADIM = HUC + ARA;
+    const W = 1200, H = 348, X = 56, Y = 128, HUC = 16, ARA = 4, ADIM = HUC + ARA;
     const hucreler = [];
     const aylar = [];
     let oncekiAy = -1;
@@ -87,7 +91,7 @@ export function ciz(veri, simdi = new Date()) {
             oncekiAy = ay;
         }
     });
-    const lejantX = X + 52 * ADIM - ARA - 5 * (HUC + 4) + 4;
+    const lejantX = X + haftalar.length * ADIM - ARA - 5 * (HUC + 4) + 4;
     const lejant = R.seviye.map((r, n) => `<rect x="${lejantX + n * (HUC + 4)}" y="${H - 50}" width="${HUC}" height="${HUC}" rx="4" fill="${r}"/>`).join('');
 
     const font = (ad, aile, agirlik) => `@font-face{font-family:'${aile}';font-weight:${agirlik};src:url(data:font/woff2;base64,${F[ad]}) format('woff2');}`;
@@ -105,7 +109,7 @@ export function ciz(veri, simdi = new Date()) {
   <text x="${X}" y="62" class="ozet">Son 12 ayda <tspan class="s">${s.toplam} katkı</tspan>. En uzun seri <tspan class="s">${gunAdi(s.enUzun)}</tspan>, şu anki seri <tspan class="s">${gunAdi(s.simdiki)}</tspan>.</text>
   ${aylar.map((a) => a.metin).join('\n  ')}
   ${hucreler.join('\n  ')}
-  <text x="${X}" y="${H - 37}" class="not">Her gün GitHub Actions ile yenilenir. Gizli repolardaki katkılar da sayılır.</text>
+  <text x="${X}" y="${H - 37}" class="not">30 dakikada bir yenilenir, son güncelleme ${guncelleme}. Gizli repolardaki katkılar da sayılır.</text>
   <text x="${lejantX - 10}" y="${H - 37}" text-anchor="end" class="not">az</text>
   ${lejant}
   <text x="${lejantX + 5 * (HUC + 4) + 6}" y="${H - 37}" class="not">çok</text>

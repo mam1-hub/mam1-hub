@@ -29,7 +29,7 @@ Proxmox ve Ubuntu sunucular, Docker, Cloudflare. Projelerimi kendi kurduğum sun
 
 ### Hareket
 
-<img src="assets/aktivite.svg" width="100%" alt="Son 12 ayın GitHub katkı haritası; her gün yenilenir.">
+<img src="https://raw.githubusercontent.com/mam1-hub/mam1-hub/output/aktivite.svg" width="100%" alt="Son bir yılın GitHub katkı haritası; 30 dakikada bir yenilenir.">
 
 ### Ulaşmak için
 
