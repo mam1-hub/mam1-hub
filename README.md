@@ -19,13 +19,31 @@ Proxmox ve Ubuntu sunucular, Docker, Cloudflare. Projelerimi kendi kurduğum sun
 ### Kullandıklarım
 
 **Arayüz**  
-<img src="assets/arayuz.svg" height="40" alt="React, TypeScript, JavaScript, Vite, Tailwind CSS, Three.js, HTML, CSS">
+<a href="https://react.dev" title="React"><img src="assets/ikon/react.svg" width="40" height="40" alt="React"></a>&nbsp;
+<a href="https://www.typescriptlang.org" title="TypeScript"><img src="assets/ikon/ts.svg" width="40" height="40" alt="TypeScript"></a>&nbsp;
+<a href="https://developer.mozilla.org/docs/Web/JavaScript" title="JavaScript"><img src="assets/ikon/js.svg" width="40" height="40" alt="JavaScript"></a>&nbsp;
+<a href="https://vite.dev" title="Vite"><img src="assets/ikon/vite.svg" width="40" height="40" alt="Vite"></a>&nbsp;
+<a href="https://tailwindcss.com" title="Tailwind CSS"><img src="assets/ikon/tailwind.svg" width="40" height="40" alt="Tailwind CSS"></a>&nbsp;
+<a href="https://threejs.org" title="Three.js"><img src="assets/ikon/threejs.svg" width="40" height="40" alt="Three.js"></a>&nbsp;
+<a href="https://developer.mozilla.org/docs/Web/HTML" title="HTML"><img src="assets/ikon/html.svg" width="40" height="40" alt="HTML"></a>&nbsp;
+<a href="https://developer.mozilla.org/docs/Web/CSS" title="CSS"><img src="assets/ikon/css.svg" width="40" height="40" alt="CSS"></a>
 
 **Sunucu ve veri**  
-<img src="assets/sunucu.svg" height="40" alt="Node.js, Express, PostgreSQL, MongoDB, Python, discord.js">
+<a href="https://nodejs.org" title="Node.js"><img src="assets/ikon/nodejs.svg" width="40" height="40" alt="Node.js"></a>&nbsp;
+<a href="https://expressjs.com" title="Express"><img src="assets/ikon/express.svg" width="40" height="40" alt="Express"></a>&nbsp;
+<a href="https://www.postgresql.org" title="PostgreSQL"><img src="assets/ikon/postgres.svg" width="40" height="40" alt="PostgreSQL"></a>&nbsp;
+<a href="https://www.mongodb.com" title="MongoDB"><img src="assets/ikon/mongodb.svg" width="40" height="40" alt="MongoDB"></a>&nbsp;
+<a href="https://www.python.org" title="Python"><img src="assets/ikon/python.svg" width="40" height="40" alt="Python"></a>&nbsp;
+<a href="https://discord.js.org" title="discord.js"><img src="assets/ikon/discordjs.svg" width="40" height="40" alt="discord.js"></a>
 
 **Altyapı ve araçlar**  
-<img src="assets/altyapi.svg" height="40" alt="Linux, Ubuntu, Docker, Cloudflare, Vercel, Git, GitHub Actions">
+<a href="https://www.kernel.org" title="Linux"><img src="assets/ikon/linux.svg" width="40" height="40" alt="Linux"></a>&nbsp;
+<a href="https://ubuntu.com" title="Ubuntu"><img src="assets/ikon/ubuntu.svg" width="40" height="40" alt="Ubuntu"></a>&nbsp;
+<a href="https://www.docker.com" title="Docker"><img src="assets/ikon/docker.svg" width="40" height="40" alt="Docker"></a>&nbsp;
+<a href="https://www.cloudflare.com" title="Cloudflare"><img src="assets/ikon/cloudflare.svg" width="40" height="40" alt="Cloudflare"></a>&nbsp;
+<a href="https://vercel.com" title="Vercel"><img src="assets/ikon/vercel.svg" width="40" height="40" alt="Vercel"></a>&nbsp;
+<a href="https://git-scm.com" title="Git"><img src="assets/ikon/git.svg" width="40" height="40" alt="Git"></a>&nbsp;
+<a href="https://github.com/features/actions" title="GitHub Actions"><img src="assets/ikon/githubactions.svg" width="40" height="40" alt="GitHub Actions"></a>
 
 ### Hareket
 
